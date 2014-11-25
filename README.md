@@ -58,8 +58,8 @@ The default values have probably been chosen because they represent the
 a type together with an operation (an element that leaves the other
 operand unchanged):
 
-Default value | Typed operation
-------------- | ---------------
+Identity element | Typed operation
+---------------- | ---------------
 `1` | Integer multiplication
 `0` | Integer addition
 `-1` | Bitwise AND
