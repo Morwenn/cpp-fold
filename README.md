@@ -55,7 +55,8 @@ parameter pack in a fold expression makes the program ill-formed.
 
 The default values have probably been chosen because they represent the
 [identity element](https://en.wikipedia.org/wiki/Identity_element) for
-a type together with an operation:
+a type together with an operation (an element that leaves the other
+operand unchanged):
 
 Default value | Typed operation
 ------------- | ---------------
