@@ -158,7 +158,7 @@ types so that the following code works:
 
 ```cpp
 int a = lfold<plus>(); // 0
-inb b = lfold<multiplies>(); // 1
+int b = lfold<multiplies>(); // 1
 float c = lfold<plus>(); // 0.0f
 ```
 
