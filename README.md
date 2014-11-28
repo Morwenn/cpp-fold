@@ -129,6 +129,12 @@ calls a [synchronization point](http://ericniebler.com/2014/10/21/customization-
 Therefore, every such function objects is meant to use ADL to find
 the most suitable function to perform the operation.
 
+The names of the objects for the usual binary operations are the same
+than the ones in the standard library. For a standard library functor,
+`cppfold::functor` is strictly equivalent to `std::functor<void>`. The
+new function objects have mainly been introduced to simplify the whole
+thing.
+
 ### Folding empty parameter packs
 
 When `lfold` or `rfold` is given an empty parameter pack, it returns
