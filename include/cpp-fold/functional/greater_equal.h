@@ -15,19 +15,25 @@
  * License along with this program. If not,
  * see <http://www.gnu.org/licenses/>.
  */
-#ifndef CPPFOLD_FUNCTIONAL_H_
-#define CPPFOLD_FUNCTIONAL_H_
+#ifndef CPPFOLD_FUNCTIONAL_GREATER_EQUAL_H_
+#define CPPFOLD_FUNCTIONAL_GREATER_EQUAL_H_
 
-#include <cpp-fold/functional/divides.h>
-#include <cpp-fold/functional/equal_to.h>
-#include <cpp-fold/functional/greater.h>
-#include <cpp-fold/functional/greater_equal.h>
-#include <cpp-fold/functional/less.h>
-#include <cpp-fold/functional/less_equal.h>
-#include <cpp-fold/functional/minus.h>
-#include <cpp-fold/functional/modulus.h>
-#include <cpp-fold/functional/multiplies.h>
-#include <cpp-fold/functional/not_equal_to.h>
-#include <cpp-fold/functional/plus.h>
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
+#include <utility>
 
-#endif // CPPFOLD_FUNCTIONAL_H_
+namespace cppfold
+{
+    struct greater_equal
+    {
+        template<typename T, typename U>
+        constexpr auto operator()(T&& lhs, U&& rhs) const
+            -> decltype(std::forward<T>(lhs) >= std::forward<U>(rhs))
+        {
+            return std::forward<T>(lhs) >= std::forward<U>(rhs);
+        }
+    };
+}
+
+#endif // CPPFOLD_FUNCTIONAL_GREATER_EQUAL_H_
