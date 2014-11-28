@@ -18,6 +18,9 @@
 #ifndef CPPFOLD_FUNCTIONAL_H_
 #define CPPFOLD_FUNCTIONAL_H_
 
+#include <cpp-fold/functional/bit_and.h>
+#include <cpp-fold/functional/bit_or.h>
+#include <cpp-fold/functional/bit_xor.h>
 #include <cpp-fold/functional/divides.h>
 #include <cpp-fold/functional/equal_to.h>
 #include <cpp-fold/functional/greater.h>
