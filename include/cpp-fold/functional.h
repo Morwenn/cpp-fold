@@ -24,6 +24,8 @@
 #include <cpp-fold/functional/greater_equal.h>
 #include <cpp-fold/functional/less.h>
 #include <cpp-fold/functional/less_equal.h>
+#include <cpp-fold/functional/logical_and.h>
+#include <cpp-fold/functional/logical_or.h>
 #include <cpp-fold/functional/minus.h>
 #include <cpp-fold/functional/modulus.h>
 #include <cpp-fold/functional/multiplies.h>
