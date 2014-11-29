@@ -19,6 +19,7 @@
 #define CPPFOLD_FUNCTIONAL_H_
 
 #include <cpp-fold/functional/assign.h>
+#include <cpp-fold/functional/comma.h>
 #include <cpp-fold/functional/bit_and.h>
 #include <cpp-fold/functional/bit_and_assign.h>
 #include <cpp-fold/functional/bit_or.h>
