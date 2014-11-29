@@ -18,23 +18,34 @@
 #ifndef CPPFOLD_FUNCTIONAL_H_
 #define CPPFOLD_FUNCTIONAL_H_
 
+#include <cpp-fold/functional/assign.h>
 #include <cpp-fold/functional/bit_and.h>
+#include <cpp-fold/functional/bit_and_assign.h>
 #include <cpp-fold/functional/bit_or.h>
+#include <cpp-fold/functional/bit_or_assign.h>
 #include <cpp-fold/functional/bit_xor.h>
+#include <cpp-fold/functional/bit_xor_assign.h>
 #include <cpp-fold/functional/divides.h>
+#include <cpp-fold/functional/divides_assign.h>
 #include <cpp-fold/functional/equal_to.h>
 #include <cpp-fold/functional/greater.h>
 #include <cpp-fold/functional/greater_equal.h>
 #include <cpp-fold/functional/left_shift.h>
+#include <cpp-fold/functional/left_shift_assign.h>
 #include <cpp-fold/functional/less.h>
 #include <cpp-fold/functional/less_equal.h>
 #include <cpp-fold/functional/logical_and.h>
 #include <cpp-fold/functional/logical_or.h>
 #include <cpp-fold/functional/minus.h>
+#include <cpp-fold/functional/minus_assign.h>
 #include <cpp-fold/functional/modulus.h>
+#include <cpp-fold/functional/modulus_assign.h>
 #include <cpp-fold/functional/multiplies.h>
+#include <cpp-fold/functional/multiplies_assign.h>
 #include <cpp-fold/functional/not_equal_to.h>
 #include <cpp-fold/functional/plus.h>
+#include <cpp-fold/functional/plus_assign.h>
 #include <cpp-fold/functional/right_shift.h>
+#include <cpp-fold/functional/right_shift_assign.h>
 
 #endif // CPPFOLD_FUNCTIONAL_H_
