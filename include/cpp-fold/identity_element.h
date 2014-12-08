@@ -22,6 +22,12 @@ namespace cppfold
 {
     template<typename T, typename BinaryFunction>
     struct identity_element;
+
+    template<typename T, typename BinaryFunction>
+    struct right_identity_element;
+
+    template<typename T, typename BinaryFunction>
+    struct left_identity_element;
 }
 
 #endif // CPPFOLD_IDENTITY_ELEMENT_H_
