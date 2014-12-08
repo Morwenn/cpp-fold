@@ -34,6 +34,87 @@ namespace cppfold
             return std::forward<T>(lhs) ^ std::forward<U>(rhs);
         }
     };
+
+    ////////////////////////////////////////////////////////////
+    // Built-in types specializations
+
+    template<>
+    struct identity_element<unsigned char, bit_xor>
+    {
+        static constexpr unsigned char value = '\0';
+    };
+
+    template<>
+    struct identity_element<signed char, bit_xor>
+    {
+        static constexpr signed char value = '\0';
+    };
+
+    template<>
+    struct identity_element<wchar_t, bit_xor>
+    {
+        static constexpr wchar_t value = L'\0';
+    };
+
+    template<>
+    struct identity_element<char16_t, bit_xor>
+    {
+        static constexpr char16_t value = u'\0';
+    };
+
+    template<>
+    struct identity_element<char32_t, bit_xor>
+    {
+        static constexpr char32_t value = U'\0';
+    };
+
+    template<>
+    struct identity_element<unsigned short, bit_xor>
+    {
+        static constexpr unsigned short value = 0U;
+    };
+
+    template<>
+    struct identity_element<signed short, bit_xor>
+    {
+        static constexpr signed short value = 0;
+    };
+
+    template<>
+    struct identity_element<unsigned int, bit_xor>
+    {
+        static constexpr unsigned int value = 0U;
+    };
+
+    template<>
+    struct identity_element<signed int, bit_xor>
+    {
+        static constexpr signed int value = 0;
+    };
+
+    template<>
+    struct identity_element<unsigned long, bit_xor>
+    {
+        static constexpr unsigned long value = 0UL;
+    };
+
+    template<>
+    struct identity_element<signed long, bit_xor>
+    {
+        static constexpr signed long value = 0L;
+    };
+
+    template<>
+    struct identity_element<unsigned long long, bit_xor>
+    {
+        static constexpr unsigned long long value = 0ULL;
+    };
+
+    template<>
+    struct identity_element<signed long long, bit_xor>
+    {
+        static constexpr signed long long value = 0LL;
+    };
 }
 
 #endif // CPPFOLD_FUNCTIONAL_BIT_XOR_H_
