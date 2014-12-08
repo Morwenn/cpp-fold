@@ -182,6 +182,42 @@ template to represent the identity element for a given type/operation
 pair. However, variable templates are still not widely supported by
 compilers. When this happens, it will be a breaking change.
 
+### Standard library types
+
+Some standard library types have binary operations with identity elements,
+but no standard way retrieve them. Therefore, cpp-fold provides some
+specializations of `identity_element` for these type/operation pairs.
+Currently, cpp-fold provides identity elements for the following magmas:
+
+* `std::basic_stream` and `cppfold::plus`
+* `std::complex` and `cppfold::plus`
+* `std::complex` and `cppfold::multiplies`
+
+The identity elements are also provided by default for built-in types when
+a functor is included. For standard library types, one has to include the
+header `<cppfold/std/header.h>` where `header.h` has a corresponding
+`<header>` in the standard library.
+
+```cpp
+#include <cassert>
+#include <complex>
+#include <cppfold/std/complex.h>
+
+int main()
+{
+    using namespace cppfold;
+
+    std::complex<double> comp = { 1.5, 2.3 };
+    auto idp = identity_element<std::complex<double>, plus>;
+    auto idm = identity_element<std::complex<double>, multiplies>;
+    
+    assert(comp + idp == comp);
+    assert(idp + comp == comp);
+    assert(comp * idm == comp);
+    assert(idm * comp == comp);
+}
+```
+
 ### Pitfalls
 
 There are several pitfalls to this approach. First of all, we need to
@@ -209,4 +245,7 @@ In other words, these fold functions are generic but need some heavy
 contribution from the users to work even with the empty parameter pack
 case.
 
-
+Another notable pitfall concerns the floating point types: identity
+elements are provided for addition and multiplication, but they do
+not play well with `NAN` since comparing anything to `NAN` will return
+`false`, including `NAN` itself.
