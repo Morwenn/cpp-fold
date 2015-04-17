@@ -19,9 +19,9 @@ auto sum(Args... args)
 ```
 
 In this example, the elements of the parameter pack `args` will be added
-from left to right. ADL is used to find the good overloads of `operator+`
+from left to right. ADL is used to find the right overloads of `operator+`
 for the different elements. The `sum` function above performs a left fold.
-To perform a right fold, we only have to switch the order of `args` and
+To perform a right fold, one only has to switch the order of `args` and
 `...` in the fold expression:
 
 ```cpp
@@ -36,9 +36,9 @@ right fold*. Both add 0 to `args`.
 
 ## Identity elements
 
-The proposal about fold expressions also adds a a table which specifies
-which value should be returned for which operator when an empty parameter
-pack is given to an unary fold expression:
+The fold expressions proposal also adds a a table which specifies which
+value should be returned for which operator when an empty parameter pack
+is given to an unary fold expression:
 
 Operator | Value when parameter pack is empty
 -------- | ----------------------------------
@@ -50,7 +50,7 @@ Operator | Value when parameter pack is empty
 `||` | `false`
 `,` | `void()`
 
-If an operator does not appear in this table, using with an empty
+If an operator does not appear in this table, using it with an empty
 parameter pack in a fold expression makes the program ill-formed.
 
 The default values have probably been chosen because they represent the
@@ -70,7 +70,7 @@ Identity element | Typed operation
 
 While these default values are fine with most of the built-in types,
 they might not be suitable when an operation is overloaded for some
-user-defined type (paper about that later).
+user-defined type (see my own paper, [N4358](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4358.pdf)).
 
 ## cpp-fold
 
@@ -90,22 +90,22 @@ int main
 {
     using namespace cppfold;
 
-    // Add integers
-    int foo = rfold<plus>(1, 8, 5, 3, 6);
+    // Multiply integers
+    int foo = rfold<multiplies>(1, 8, 5, 3, 6);
 
     // Concatenate strings
-    std::string bar = lfold<multiplies>("Hello"s, "my"s, "dear"s, "world."s);
+    std::string bar = lfold<plus>("Hello"s, "my"s, "dear"s, "world."s);
 }
 ```
 
 As you can see. Every function lives in the namespace `cppfold`. That is
-also true for the function objects `plus` and `multiplies` that are used
+also true for the function objects `plus` and `multiplies` which are used
 in the example above.
 
 ### Function objects
 
-**cpp-fold** provides some function object to represent the operators
-allowed in fold expressions by N4191. These functions objects have a
+**cpp-fold** provides some function objects to represent the operators
+allowed in fold expressions by N4191. These function objects have a
 straightforward implementation:
 
 ```cpp
@@ -123,11 +123,11 @@ struct plus
 The implementation of `cppfold::plus` matches the implementation of
 `std::plus<void>`. The aim of this specialization is to represent an
 operation without representing its actual type so that other classes
-and/or function can be specialized for an operation without having to
+and/or functions can be specialized for an operation without having to
 consider the type of its parameters. It represents what Eric Niebler
 calls a [synchronization point](http://ericniebler.com/2014/10/21/customization-point-design-in-c11-and-beyond/).
-Therefore, every such function objects is meant to use ADL to find
-the most suitable function to perform the operation.
+Therefore, every such function object is meant to use ADL to find
+the most suitable real function to perform the operation.
 
 The names of the objects for the usual binary operations are the same
 than the ones in the standard library. For a standard library functor,
@@ -138,7 +138,7 @@ thing.
 ### Folding empty parameter packs
 
 When `lfold` or `rfold` is given an empty parameter pack, it returns
-an instance of `empty_fold` which is implement as follows:
+an instance of `empty_fold` which is implemented as follows:
 
 ```cpp
 template<typename BinaryFunction>
@@ -152,7 +152,7 @@ struct empty_fold
 };
 ```
 
-Here, `identity_element` is a trait class that represents the identity
+Here, `identity_element` is a trait class which represents the identity
 element for the given binary operation. It is specialized for built-in
 types so that the following code works:
 
@@ -163,8 +163,8 @@ float c = lfold<plus>(); // 0.0f
 ```
 
 It can easily be specialized for user-defined types, including the
-standard library ones. Here is how we can tell that the empty string
-is the identity element of string concatenation:
+standard library ones. Here is how we can tell that an empty string
+is the identity element for string concatenation:
 
 ```cpp
 namespace cppfold
@@ -223,7 +223,7 @@ int main()
 There are several pitfalls to this approach. First of all, we need to
 use generic function objects and customization points to achieve the
 generic mechanism since we need a full type to achieve the compile
-time specialization. That means that, for a given operation, there must
+time specialization. It means that, for a given operation, there must
 be both an existing function *and* a function object. That is generic,
 but still quite heavy.
 
@@ -239,7 +239,7 @@ auto res = lfold<multiplies>();
 To avoid this kind of problems, we would need a way to tell the language
 that a type cannot be deduced with `auto`. That could be the object of
 yet another complete proposal and there may still be cases where we would
-like to deduce the type.
+like to deduce the type anyway.
 
 In other words, these fold functions are generic but need some heavy
 contribution from the users to work even with the empty parameter pack
