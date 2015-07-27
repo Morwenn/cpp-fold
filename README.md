@@ -189,7 +189,7 @@ but no standard way retrieve them. Therefore, cpp-fold provides some
 specializations of `identity_element` for these type/operation pairs.
 Currently, cpp-fold provides identity elements for the following magmas:
 
-* `std::basic_stream` and `cppfold::plus`
+* `std::basic_string` and `cppfold::plus`
 * `std::complex` and `cppfold::plus`
 * `std::complex` and `cppfold::multiplies`
 
