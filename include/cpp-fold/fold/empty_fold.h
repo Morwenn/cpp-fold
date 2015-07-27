@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Morwenn
+ * Copyright (C) 2014-2015 Morwenn
  *
  * cpp-fold is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -26,12 +26,22 @@
 namespace cppfold
 {
     template<typename BinaryFunction>
-    struct empty_fold
+    struct empty_lfold
     {
         template<typename T>
         constexpr operator T() const
         {
-            return identity_element<T, BinaryFunction>::value;
+            return left_identity_element<T, BinaryFunction>::value;
+        }
+    };
+
+    template<typename BinaryFunction>
+    struct empty_rfold
+    {
+        template<typename T>
+        constexpr operator T() const
+        {
+            return right_identity_element<T, BinaryFunction>::value;
         }
     };
 }
