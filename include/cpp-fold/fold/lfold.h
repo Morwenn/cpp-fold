@@ -28,7 +28,7 @@ namespace cppfold
 {
     template<typename BinaryFunction>
     auto lfold()
-        -> empty_fold<BinaryFunction>
+        -> empty_lfold<BinaryFunction>
     {
         return {};
     }
