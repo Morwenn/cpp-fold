@@ -1,6 +1,6 @@
 **cpp-fold** is a C++14 library whose goal is to explore the intersection
 of variadic fold functions, empty parameter packs and identity elements.
-It is a library experiment to possibly improve the C++17 fold expressions.
+It is a library experiment to possibly improve C++17's fold expressions.
 
 ## Fold expressions
 
@@ -36,7 +36,7 @@ right fold*. Both add 0 to `args`.
 
 ## Identity elements
 
-The fold expressions proposal also adds a a table which specifies which
+The fold expressions proposal also adds a table which specifies which
 value should be returned for which operator when an empty parameter pack
 is given to an unary fold expression:
 
@@ -74,8 +74,8 @@ user-defined type (see my own paper, [N4358](http://www.open-std.org/jtc1/sc22/w
 
 ## cpp-fold
 
-**cpp-fold** is a generic library solution to propose to provide identity
-elements for a given type/operation pair. Since fold expressions require
+**cpp-fold** is a generic fold library solution which provides identity
+elements for several type/operation pairs. Since fold expressions require
 compiler support, **cpp-fold** provides two main operations to replace
 them in pure C++14:
 
@@ -137,24 +137,25 @@ thing.
 
 ### Folding empty parameter packs
 
-When `lfold` or `rfold` is given an empty parameter pack, it returns
-an instance of `empty_fold` which is implemented as follows:
+When the functions `lfold` or `rfold` are given an empty parameter pack,
+they respectively return an instance of `empty_lfold` or `empty_rfold`,
+which are implemented as follows (you can guess `empty_rfold`):
 
 ```cpp
 template<typename BinaryFunction>
-struct empty_fold
+struct empty_lfold
 {
     template<typename T>
     constexpr operator T() const
     {
-        return identity_element<T, BinaryFunction>::value;
+        return left_identity_element<T, BinaryFunction>::value;
     }
 };
 ```
 
-Here, `identity_element` is a trait class which represents the identity
-element for the given binary operation. It is specialized for built-in
-types so that the following code works:
+Here, `left_identity_element` is a trait class which represents the left
+identity element for the given binary operation. It is specialized for
+built-in types so that the following code works:
 
 ```cpp
 int a = lfold<plus>(); // 0
@@ -162,9 +163,10 @@ int b = lfold<multiplies>(); // 1
 float c = lfold<plus>(); // 0.0f
 ```
 
-It can easily be specialized for user-defined types, including the
-standard library ones. Here is how we can tell that an empty string
-is the identity element for string concatenation:
+There is a matching `right_identity_element` in the library as well as a
+generic `identity_element`. These classes can easily be specialized for
+user-defined types, including the standard library ones. Here is how we
+can tell that an empty string is the identity element for string concatenation:
 
 ```cpp
 namespace cppfold
@@ -177,7 +179,29 @@ namespace cppfold
 }
 ```
 
-In a near future variable templates will be used instead of a class
+These three classes are defined in a way that allows one to specialize
+`identity_element` and get working right and left identity elements at
+once:
+
+```cpp
+namespace cppfold
+{
+    template<typename T, typename BinaryFunction>
+    struct identity_element;
+
+    template<typename T, typename BinaryFunction>
+    struct right_identity_element:
+        identity_element<T, BinaryFunction>
+    {};
+
+    template<typename T, typename BinaryFunction>
+    struct left_identity_element:
+        identity_element<T, BinaryFunction>
+    {};
+}
+```
+    
+In a near future, variable templates will be used instead of a class
 template to represent the identity element for a given type/operation
 pair. However, variable templates are still not widely supported by
 compilers. When this happens, it will be a breaking change.
@@ -225,7 +249,7 @@ use generic function objects and customization points to achieve the
 generic mechanism since we need a full type to achieve the compile
 time specialization. It means that, for a given operation, there must
 be both an existing function *and* a function object. That is generic,
-but still quite heavy.
+but still quite heavy for a mere corner case of folding operations.
 
 Moreover, the element returned when an empty parameter is given to one
 of the fold functions is probably not of the "expected type" but of a
@@ -242,10 +266,14 @@ yet another complete proposal and there may still be cases where we would
 like to deduce the type anyway.
 
 In other words, these fold functions are generic but need some heavy
-contribution from the users to work even with the empty parameter pack
-case.
+contribution from the users to work properly with the empty parameter pack
+case. And that only cover the cases where operations *do* have identity
+elements. That's a big hammer for such a small benefit.
 
 Another notable pitfall concerns the floating point types: identity
-elements are provided for addition and multiplication, but they do
-not play well with `NAN` since comparing anything to `NAN` will return
-`false`, including `NAN` itself.
+elements are provided for some of the floating point operations, but they
+do not play well with `NAN` since comparing anything to `NAN` will return
+`false`, including `NAN` itself. Therefore, `NAN` is ignored in the library
+since users would still want to get the identity elements for "floating
+point without `NAN`" anyway. That's a question of correctness versus
+usability.
