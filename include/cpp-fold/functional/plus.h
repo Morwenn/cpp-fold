@@ -21,20 +21,12 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <utility>
+#include <functional>
 #include <cpp-fold/identity_element.h>
 
 namespace cppfold
 {
-    struct plus
-    {
-        template<typename T, typename U>
-        constexpr auto operator()(T&& lhs, U&& rhs) const
-            -> decltype(std::forward<T>(lhs) + std::forward<U>(rhs))
-        {
-            return std::forward<T>(lhs) + std::forward<U>(rhs);
-        }
-    };
+    using plus = std::plus<>;
 
     ////////////////////////////////////////////////////////////
     // Built-in types specializations

@@ -21,19 +21,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <utility>
+#include <functional>
 
 namespace cppfold
 {
-    struct bit_xor
-    {
-        template<typename T, typename U>
-        constexpr auto operator()(T&& lhs, U&& rhs) const
-            -> decltype(std::forward<T>(lhs) ^ std::forward<U>(rhs))
-        {
-            return std::forward<T>(lhs) ^ std::forward<U>(rhs);
-        }
-    };
+    using bit_xor = std::bit_xor<>;
 
     ////////////////////////////////////////////////////////////
     // Built-in types specializations

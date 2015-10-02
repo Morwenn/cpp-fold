@@ -21,19 +21,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <utility>
+#include <functional>
 
 namespace cppfold
 {
-    struct greater
-    {
-        template<typename T, typename U>
-        constexpr auto operator()(T&& lhs, U&& rhs) const
-            -> decltype(std::forward<T>(lhs) > std::forward<U>(rhs))
-        {
-            return std::forward<T>(lhs) > std::forward<U>(rhs);
-        }
-    };
+    using greater = std::greater<>;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_GREATER_H_

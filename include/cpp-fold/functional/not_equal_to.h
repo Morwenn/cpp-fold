@@ -21,19 +21,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <utility>
+#include <functional>
 
 namespace cppfold
 {
-    struct not_equal_to
-    {
-        template<typename T, typename U>
-        constexpr auto operator()(T&& lhs, U&& rhs) const
-            -> decltype(std::forward<T>(lhs) != std::forward<U>(rhs))
-        {
-            return std::forward<T>(lhs) != std::forward<U>(rhs);
-        }
-    };
+    using not_equal_to = std::not_equal_to<>;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_NOT_EQUAL_TO_H_

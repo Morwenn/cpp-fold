@@ -21,19 +21,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <utility>
+#include <functional>
 
 namespace cppfold
 {
-    struct less_equal
-    {
-        template<typename T, typename U>
-        constexpr auto operator()(T&& lhs, U&& rhs) const
-            -> decltype(std::forward<T>(lhs) <= std::forward<U>(rhs))
-        {
-            return std::forward<T>(lhs) <= std::forward<U>(rhs);
-        }
-    };
+    using less_equal = std::less_equal<>;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_LESS_EQUAL_H_

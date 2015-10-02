@@ -21,19 +21,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <utility>
+#include <functional>
 
 namespace cppfold
 {
-    struct equal_to
-    {
-        template<typename T, typename U>
-        constexpr auto operator()(T&& lhs, U&& rhs) const
-            -> decltype(std::forward<T>(lhs) == std::forward<U>(rhs))
-        {
-            return std::forward<T>(lhs) == std::forward<U>(rhs);
-        }
-    };
+    using equal_to = std::equal_to<>;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_EQUAL_TO_H_

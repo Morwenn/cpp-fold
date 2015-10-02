@@ -21,20 +21,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <utility>
-#include <cpp-fold/identity_element.h>
+#include <functional>
 
 namespace cppfold
 {
-    struct modulus
-    {
-        template<typename T, typename U>
-        constexpr auto operator()(T&& lhs, U&& rhs) const
-            -> decltype(std::forward<T>(lhs) % std::forward<U>(rhs))
-        {
-            return std::forward<T>(lhs) % std::forward<U>(rhs);
-        }
-    };
+    using modulus = std::modulus<>;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_MODULUS_H_

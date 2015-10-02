@@ -21,19 +21,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <utility>
+#include <functional>
 
 namespace cppfold
 {
-    struct greater_equal
-    {
-        template<typename T, typename U>
-        constexpr auto operator()(T&& lhs, U&& rhs) const
-            -> decltype(std::forward<T>(lhs) >= std::forward<U>(rhs))
-        {
-            return std::forward<T>(lhs) >= std::forward<U>(rhs);
-        }
-    };
+    using greater_equal = std::greater_equal<>;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_GREATER_EQUAL_H_

@@ -109,13 +109,13 @@ allowed in fold expressions by N4191. These function objects have a
 straightforward implementation:
 
 ```cpp
-struct plus
+struct assign
 {
     template<typename T, typename U>
     constexpr auto operator()(T&& lhs, U&& rhs) const
-        -> decltype(std::forward<T>(lhs) + std::forward<U>(rhs))
+        -> decltype(std::forward<T>(lhs) = std::forward<U>(rhs))
     {
-        return std::forward<T>(lhs) + std::forward<U>(rhs);
+        return std::forward<T>(lhs) = std::forward<U>(rhs);
     }
 };
 ```
@@ -133,7 +133,9 @@ The names of the objects for the usual binary operations are the same
 than the ones in the standard library. For a standard library functor,
 `cppfold::functor` is strictly equivalent to `std::functor<void>`. The
 new function objects have mainly been introduced to simplify the whole
-thing.
+thing. Moreover, when the equivalent function object already exists in
+the standard library, the **cpp-fold** version is merely a type alias
+to its `void` specialization.
 
 ### Folding empty parameter packs
 
