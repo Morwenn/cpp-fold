@@ -31,7 +31,7 @@ namespace cppfold
         template<typename T>
         constexpr operator T() const
         {
-            return left_identity_element<T, BinaryFunction>::value;
+            return left_identity_element<T, BinaryFunction>;
         }
     };
 
@@ -41,7 +41,7 @@ namespace cppfold
         template<typename T>
         constexpr operator T() const
         {
-            return right_identity_element<T, BinaryFunction>::value;
+            return right_identity_element<T, BinaryFunction>;
         }
     };
 }

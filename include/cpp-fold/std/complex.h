@@ -23,26 +23,21 @@
 ////////////////////////////////////////////////////////////
 #include <complex>
 #include <cpp-fold/identity_element.h>
+#include <cpp-fold/functional/multiplies.h>
 #include <cpp-fold/functional/plus.h>
 
 namespace cppfold
 {
     template<typename T>
-    struct identity_element<std::complex<T>, plus>
-    {
-        static constexpr std::complex<T> value = {
-            identity_element<T, plus>::value,
-            identity_element<T, plus>::value
-        };
+    constexpr std::complex<T> identity_element<std::complex<T>, plus> = {
+        identity_element<T, plus>,
+        identity_element<T, plus>
     };
 
     template<typename T>
-    struct identity_element<std::complex<T>, multiplies>
-    {
-        static constexpr std::complex<T> value = {
-            identity_element<T, multiplies>::value,
-            identity_element<T, plus>::value
-        };
+    constexpr std::complex<T> identity_element<std::complex<T>, multiplies> = {
+        identity_element<T, multiplies>,
+        identity_element<T, plus>
     };
 }
 

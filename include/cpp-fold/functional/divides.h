@@ -40,100 +40,52 @@ namespace cppfold
     // Built-in types specializations
 
     template<>
-    struct right_identity_element<unsigned char, divides>
-    {
-        static constexpr unsigned char value = 1U;
-    };
+    constexpr unsigned char right_identity_element<unsigned char, divides> = 1U;
 
     template<>
-    struct right_identity_element<signed char, divides>
-    {
-        static constexpr signed char value = 1;
-    };
+    constexpr signed char right_identity_element<signed char, divides> = 1;
 
     template<>
-    struct right_identity_element<wchar_t, divides>
-    {
-        static constexpr wchar_t value = 1;
-    };
+    constexpr wchar_t right_identity_element<wchar_t, divides> = 1;
 
     template<>
-    struct right_identity_element<char16_t, divides>
-    {
-        static constexpr char16_t value = 1;
-    };
+    constexpr char16_t right_identity_element<char16_t, divides> = 1;
 
     template<>
-    struct right_identity_element<char32_t, divides>
-    {
-        static constexpr char32_t value = 1;
-    };
+    constexpr char32_t right_identity_element<char32_t, divides> = 1;
 
     template<>
-    struct right_identity_element<unsigned short, divides>
-    {
-        static constexpr unsigned short value = 1U;
-    };
+    constexpr unsigned short right_identity_element<unsigned short, divides> = 1U;
 
     template<>
-    struct right_identity_element<signed short, divides>
-    {
-        static constexpr signed short value = 1;
-    };
+    constexpr signed short right_identity_element<signed short, divides> = 1;
 
     template<>
-    struct right_identity_element<unsigned int, divides>
-    {
-        static constexpr unsigned int value = 1U;
-    };
+    constexpr unsigned int right_identity_element<unsigned int, divides> = 1U;
 
     template<>
-    struct right_identity_element<signed int, divides>
-    {
-        static constexpr signed int value = 1;
-    };
+    constexpr signed int right_identity_element<signed int, divides> = 1;
 
     template<>
-    struct right_identity_element<unsigned long, divides>
-    {
-        static constexpr unsigned long value = 1UL;
-    };
+    constexpr unsigned long right_identity_element<unsigned long, divides> = 1UL;
 
     template<>
-    struct right_identity_element<signed long, divides>
-    {
-        static constexpr signed long value = 1L;
-    };
+    constexpr signed long right_identity_element<signed long, divides> = 1L;
 
     template<>
-    struct right_identity_element<unsigned long long, divides>
-    {
-        static constexpr unsigned long long value = 1ULL;
-    };
+    constexpr unsigned long long right_identity_element<unsigned long long, divides> = 1ULL;
 
     template<>
-    struct right_identity_element<signed long long, divides>
-    {
-        static constexpr signed long long value = 1LL;
-    };
+    constexpr signed long long right_identity_element<signed long long, divides> = 1LL;
 
     template<>
-    struct right_identity_element<float, divides>
-    {
-        static constexpr float value = 1.0F;
-    };
+    constexpr float right_identity_element<float, divides> = 1.0F;
 
     template<>
-    struct right_identity_element<double, divides>
-    {
-        static constexpr double value = 1.0;
-    };
+    constexpr double right_identity_element<double, divides> = 1.0;
 
     template<>
-    struct right_identity_element<long double, divides>
-    {
-        static constexpr long double value = 1.0L;
-    };
+    constexpr long double right_identity_element<long double, divides> = 1.0L;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_DIVIDES_H_

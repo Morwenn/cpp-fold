@@ -40,100 +40,52 @@ namespace cppfold
     // Built-in types specializations
 
     template<>
-    struct identity_element<unsigned char, plus>
-    {
-        static constexpr unsigned char value = '\0';
-    };
+    constexpr unsigned char identity_element<unsigned char, plus> = '\0';
 
     template<>
-    struct identity_element<signed char, plus>
-    {
-        static constexpr signed char value = '\0';
-    };
+    constexpr signed char identity_element<signed char, plus> = '\0';
 
     template<>
-    struct identity_element<wchar_t, plus>
-    {
-        static constexpr wchar_t value = L'\0';
-    };
+    constexpr wchar_t identity_element<wchar_t, plus> = L'\0';
 
     template<>
-    struct identity_element<char16_t, plus>
-    {
-        static constexpr char16_t value = u'\0';
-    };
+    constexpr char16_t identity_element<char16_t, plus> = u'\0';
 
     template<>
-    struct identity_element<char32_t, plus>
-    {
-        static constexpr char32_t value = U'\0';
-    };
+    constexpr char32_t identity_element<char32_t, plus> = U'\0';
 
     template<>
-    struct identity_element<unsigned short, plus>
-    {
-        static constexpr unsigned short value = 0U;
-    };
+    constexpr unsigned short identity_element<unsigned short, plus> = 0U;
 
     template<>
-    struct identity_element<signed short, plus>
-    {
-        static constexpr signed short value = 0;
-    };
+    constexpr signed short identity_element<signed short, plus> = 0;
 
     template<>
-    struct identity_element<unsigned int, plus>
-    {
-        static constexpr unsigned int value = 0U;
-    };
+    constexpr unsigned int identity_element<unsigned int, plus> = 0U;
 
     template<>
-    struct identity_element<signed int, plus>
-    {
-        static constexpr signed int value = 0;
-    };
+    constexpr signed int identity_element<signed int, plus> = 0;
 
     template<>
-    struct identity_element<unsigned long, plus>
-    {
-        static constexpr unsigned long value = 0UL;
-    };
+    constexpr unsigned long identity_element<unsigned long, plus> = 0UL;
 
     template<>
-    struct identity_element<signed long, plus>
-    {
-        static constexpr signed long value = 0L;
-    };
+    constexpr signed long identity_element<signed long, plus> = 0L;
 
     template<>
-    struct identity_element<unsigned long long, plus>
-    {
-        static constexpr unsigned long long value = 0ULL;
-    };
+    constexpr unsigned long long identity_element<unsigned long long, plus> = 0ULL;
 
     template<>
-    struct identity_element<signed long long, plus>
-    {
-        static constexpr signed long long value = 0LL;
-    };
+    constexpr signed long long identity_element<signed long long, plus> = 0LL;
 
     template<>
-    struct identity_element<float, plus>
-    {
-        static constexpr float value = 0.0F;
-    };
+    constexpr float identity_element<float, plus> = 0.0F;
 
     template<>
-    struct identity_element<double, plus>
-    {
-        static constexpr double value = 0.0;
-    };
+    constexpr double identity_element<double, plus> = 0.0;
 
     template<>
-    struct identity_element<long double, plus>
-    {
-        static constexpr long double value = 0.0L;
-    };
+    constexpr long double identity_element<long double, plus> = 0.0L;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_PLUS_H_

@@ -28,14 +28,8 @@
 namespace cppfold
 {
     template<typename CharT, typename Traits, typename Alloc>
-    struct identity_element<std::basic_string<CharT, Traits, Alloc>, plus>
-    {
-        static const std::basic_string<CharT, Traits, Alloc> value;
-    };
-
-    template<typename CharT, typename Traits, typename Alloc>
     const std::basic_string<CharT, Traits, Alloc>
-    identity_element<std::basic_string<CharT, Traits, Alloc>, plus>::value = "";
+    identity_element<std::basic_string<CharT, Traits, Alloc>, plus> = "";
 }
 
 #endif // CPPFOLD_STD_STRING_H_

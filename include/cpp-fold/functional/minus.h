@@ -40,100 +40,52 @@ namespace cppfold
     // Built-in types specializations
 
     template<>
-    struct right_identity_element<unsigned char, minus>
-    {
-        static constexpr unsigned char value = '\0';
-    };
+    constexpr unsigned char right_identity_element<unsigned char, minus> = '\0';
 
     template<>
-    struct right_identity_element<signed char, minus>
-    {
-        static constexpr signed char value = '\0';
-    };
+    constexpr signed char right_identity_element<signed char, minus> = '\0';
 
     template<>
-    struct right_identity_element<wchar_t, minus>
-    {
-        static constexpr wchar_t value = L'\0';
-    };
+    constexpr wchar_t right_identity_element<wchar_t, minus> = L'\0';
 
     template<>
-    struct right_identity_element<char16_t, minus>
-    {
-        static constexpr char16_t value = u'\0';
-    };
+    constexpr char16_t right_identity_element<char16_t, minus> = u'\0';
 
     template<>
-    struct right_identity_element<char32_t, minus>
-    {
-        static constexpr char32_t value = U'\0';
-    };
+    constexpr char32_t right_identity_element<char32_t, minus> = U'\0';
 
     template<>
-    struct right_identity_element<unsigned short, minus>
-    {
-        static constexpr unsigned short value = 0U;
-    };
+    constexpr unsigned short right_identity_element<unsigned short, minus> = 0U;
 
     template<>
-    struct right_identity_element<signed short, minus>
-    {
-        static constexpr signed short value = 0;
-    };
+    constexpr signed short right_identity_element<signed short, minus> = 0;
 
     template<>
-    struct right_identity_element<unsigned int, minus>
-    {
-        static constexpr unsigned int value = 0U;
-    };
+    constexpr unsigned int right_identity_element<unsigned int, minus> = 0U;
 
     template<>
-    struct right_identity_element<signed int, minus>
-    {
-        static constexpr signed int value = 0;
-    };
+    constexpr signed int right_identity_element<signed int, minus> = 0;
 
     template<>
-    struct right_identity_element<unsigned long, minus>
-    {
-        static constexpr unsigned long value = 0UL;
-    };
+    constexpr unsigned long right_identity_element<unsigned long, minus> = 0UL;
 
     template<>
-    struct right_identity_element<signed long, minus>
-    {
-        static constexpr signed long value = 0L;
-    };
+    constexpr signed long right_identity_element<signed long, minus> = 0L;
 
     template<>
-    struct right_identity_element<unsigned long long, minus>
-    {
-        static constexpr unsigned long long value = 0ULL;
-    };
+    constexpr unsigned long long right_identity_element<unsigned long long, minus> = 0ULL;
 
     template<>
-    struct right_identity_element<signed long long, minus>
-    {
-        static constexpr signed long long value = 0LL;
-    };
+    constexpr signed long long right_identity_element<signed long long, minus> = 0LL;
 
     template<>
-    struct right_identity_element<float, minus>
-    {
-        static constexpr float value = 0.0F;
-    };
+    constexpr float right_identity_element<float, minus> = 0.0F;
 
     template<>
-    struct right_identity_element<double, minus>
-    {
-        static constexpr double value = 0.0;
-    };
+    constexpr double right_identity_element<double, minus> = 0.0;
 
     template<>
-    struct right_identity_element<long double, minus>
-    {
-        static constexpr long double value = 0.0L;
-    };
+    constexpr long double right_identity_element<long double, minus> = 0.0L;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_MINUS_H_

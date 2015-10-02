@@ -40,10 +40,7 @@ namespace cppfold
     // Built-in types specializations
 
     template<>
-    struct identity_element<bool, logical_or>
-    {
-        static constexpr bool value = false;
-    };
+    constexpr bool identity_element<bool, logical_or> = false;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_LOGICAL_OR_H_

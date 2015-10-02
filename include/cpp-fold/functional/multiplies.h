@@ -40,100 +40,52 @@ namespace cppfold
     // Built-in types specializations
 
     template<>
-    struct identity_element<unsigned char, multiplies>
-    {
-        static constexpr unsigned char value = 1U;
-    };
+    constexpr unsigned char identity_element<unsigned char, multiplies> = 1U;
 
     template<>
-    struct identity_element<signed char, multiplies>
-    {
-        static constexpr signed char value = 1;
-    };
+    constexpr signed char identity_element<signed char, multiplies> = 1;
 
     template<>
-    struct identity_element<wchar_t, multiplies>
-    {
-        static constexpr wchar_t value = 1;
-    };
+    constexpr wchar_t identity_element<wchar_t, multiplies> = 1;
 
     template<>
-    struct identity_element<char16_t, multiplies>
-    {
-        static constexpr char16_t value = 1;
-    };
+    constexpr char16_t identity_element<char16_t, multiplies> = 1;
 
     template<>
-    struct identity_element<char32_t, multiplies>
-    {
-        static constexpr char32_t value = 1;
-    };
+    constexpr char32_t identity_element<char32_t, multiplies> = 1;
 
     template<>
-    struct identity_element<unsigned short, multiplies>
-    {
-        static constexpr unsigned short value = 1U;
-    };
+    constexpr unsigned short identity_element<unsigned short, multiplies> = 1U;
 
     template<>
-    struct identity_element<signed short, multiplies>
-    {
-        static constexpr signed short value = 1;
-    };
+    constexpr signed short identity_element<signed short, multiplies> = 1;
 
     template<>
-    struct identity_element<unsigned int, multiplies>
-    {
-        static constexpr unsigned int value = 1U;
-    };
+    constexpr unsigned int identity_element<unsigned int, multiplies> = 1U;
 
     template<>
-    struct identity_element<signed int, multiplies>
-    {
-        static constexpr signed int value = 1;
-    };
+    constexpr signed int identity_element<signed int, multiplies> = 1;
 
     template<>
-    struct identity_element<unsigned long, multiplies>
-    {
-        static constexpr unsigned long value = 1UL;
-    };
+    constexpr unsigned long identity_element<unsigned long, multiplies> = 1UL;
 
     template<>
-    struct identity_element<signed long, multiplies>
-    {
-        static constexpr signed long value = 1L;
-    };
+    constexpr signed long identity_element<signed long, multiplies> = 1L;
 
     template<>
-    struct identity_element<unsigned long long, multiplies>
-    {
-        static constexpr unsigned long long value = 1ULL;
-    };
+    constexpr unsigned long long identity_element<unsigned long long, multiplies> = 1ULL;
 
     template<>
-    struct identity_element<signed long long, multiplies>
-    {
-        static constexpr signed long long value = 1LL;
-    };
+    constexpr signed long long identity_element<signed long long, multiplies> = 1LL;
 
     template<>
-    struct identity_element<float, multiplies>
-    {
-        static constexpr float value = 1.0F;
-    };
+    constexpr float identity_element<float, multiplies> = 1.0F;
 
     template<>
-    struct identity_element<double, multiplies>
-    {
-        static constexpr double value = 1.0;
-    };
+    constexpr double identity_element<double, multiplies> = 1.0;
 
     template<>
-    struct identity_element<long double, multiplies>
-    {
-        static constexpr long double value = 1.0L;
-    };
+    constexpr long double identity_element<long double, multiplies> = 1.0L;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_MULTIPLIES_H_

@@ -39,82 +39,43 @@ namespace cppfold
     // Built-in types specializations
 
     template<>
-    struct identity_element<unsigned char, bit_xor>
-    {
-        static constexpr unsigned char value = '\0';
-    };
+    constexpr unsigned char identity_element<unsigned char, bit_xor> = '\0';
 
     template<>
-    struct identity_element<signed char, bit_xor>
-    {
-        static constexpr signed char value = '\0';
-    };
+    constexpr signed char identity_element<signed char, bit_xor> = '\0';
 
     template<>
-    struct identity_element<wchar_t, bit_xor>
-    {
-        static constexpr wchar_t value = L'\0';
-    };
+    constexpr wchar_t identity_element<wchar_t, bit_xor> = L'\0';
 
     template<>
-    struct identity_element<char16_t, bit_xor>
-    {
-        static constexpr char16_t value = u'\0';
-    };
+    constexpr char16_t identity_element<char16_t, bit_xor> = u'\0';
 
     template<>
-    struct identity_element<char32_t, bit_xor>
-    {
-        static constexpr char32_t value = U'\0';
-    };
+    constexpr char32_t identity_element<char32_t, bit_xor> = U'\0';
 
     template<>
-    struct identity_element<unsigned short, bit_xor>
-    {
-        static constexpr unsigned short value = 0U;
-    };
+    constexpr unsigned short identity_element<unsigned short, bit_xor> = 0U;
 
     template<>
-    struct identity_element<signed short, bit_xor>
-    {
-        static constexpr signed short value = 0;
-    };
+    constexpr signed short identity_element<signed short, bit_xor> = 0;
 
     template<>
-    struct identity_element<unsigned int, bit_xor>
-    {
-        static constexpr unsigned int value = 0U;
-    };
+    constexpr unsigned int identity_element<unsigned int, bit_xor> = 0U;
 
     template<>
-    struct identity_element<signed int, bit_xor>
-    {
-        static constexpr signed int value = 0;
-    };
+    constexpr signed int identity_element<signed int, bit_xor> = 0;
 
     template<>
-    struct identity_element<unsigned long, bit_xor>
-    {
-        static constexpr unsigned long value = 0UL;
-    };
+    constexpr unsigned long identity_element<unsigned long, bit_xor> = 0UL;
 
     template<>
-    struct identity_element<signed long, bit_xor>
-    {
-        static constexpr signed long value = 0L;
-    };
+    constexpr signed long identity_element<signed long, bit_xor> = 0L;
 
     template<>
-    struct identity_element<unsigned long long, bit_xor>
-    {
-        static constexpr unsigned long long value = 0ULL;
-    };
+    constexpr unsigned long long identity_element<unsigned long long, bit_xor> = 0ULL;
 
     template<>
-    struct identity_element<signed long long, bit_xor>
-    {
-        static constexpr signed long long value = 0LL;
-    };
+    constexpr signed long long identity_element<signed long long, bit_xor> = 0LL;
 }
 
 #endif // CPPFOLD_FUNCTIONAL_BIT_XOR_H_
