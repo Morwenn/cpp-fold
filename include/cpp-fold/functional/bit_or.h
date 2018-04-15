@@ -22,7 +22,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <functional>
-#include <cpp-fold/identity_element.h>
+#include "../identity_element.h"
 
 namespace cppfold
 {
