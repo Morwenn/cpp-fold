@@ -22,7 +22,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <utility>
-#include <cpp-fold/fold/empty_fold.h>
+#include "empty_fold.h"
 
 namespace cppfold
 {

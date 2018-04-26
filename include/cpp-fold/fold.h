@@ -18,7 +18,7 @@
 #ifndef CPPFOLD_FOLD_H_
 #define CPPFOLD_FOLD_H_
 
-#include <cpp-fold/fold/lfold.h>
-#include <cpp-fold/fold/rfold.h>
+#include "fold/lfold.h"
+#include "fold/rfold.h"
 
 #endif // CPPFOLD_FOLD_H_
